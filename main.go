@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/LeftTwixWand/Slowly/server"
+	"github.com/lefttwixwand/slowly/server"
 )
 
 const defaultPort = "8080"

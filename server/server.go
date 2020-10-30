@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/LeftTwixWand/Slowly/dto/resulterror"
-	"github.com/LeftTwixWand/Slowly/dto/resultok"
+	"github.com/lefttwixwand/slowly/dto/resulterror"
+	"github.com/lefttwixwand/slowly/dto/resultok"
 )
 
 // Server struct with mux field
