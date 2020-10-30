@@ -2,7 +2,7 @@ package resultok
 
 // ResultOk is a struct, which will returns as a good request result
 type ResultOk struct {
-	Status string
+	Status string `json:"status"`
 }
 
 // NewResult returns a new object of Result struct

@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	"../dto/resulterror"
-	"../dto/resultok"
+	"github.com/LeftTwixWand/Slowly/dto/resulterror"
+	"github.com/LeftTwixWand/Slowly/dto/resultok"
 )
 
 // Server struct with mux field
@@ -23,7 +23,7 @@ func NewServer(mux *http.ServeMux) *Server {
 
 // Initialize function add a configuration to a server object
 func (server *Server) Initialize() {
-	server.mux.HandleFunc("/api/slow", server.slow) // POST request
+	server.mux.HandleFunc("/api/slow", server.Slow) // HTTP request
 }
 
 // ServeHTTP is a method, which implements http.Handler Property and allows to use http.Server.ListenAndServe method
@@ -31,7 +31,8 @@ func (server *Server) ServeHTTP(writer http.ResponseWriter, request *http.Reques
 	server.mux.ServeHTTP(writer, request)
 }
 
-func (server *Server) slow(writer http.ResponseWriter, request *http.Request) {
+// Slow is a method, which implements /slow route
+func (server *Server) Slow(writer http.ResponseWriter, request *http.Request) {
 	keys, ok := request.URL.Query()["timeout"] // Get parameters from request with name "timeout"
 
 	if !ok || len(keys[0]) < 1 { // If count of parameters with name "timeout" less, than 1
