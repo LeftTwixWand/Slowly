@@ -5,7 +5,7 @@
 - Максимально простое API
 - Один роут
 - Один тест
-- И, конечто же, CI : ![CI](https://img.shields.io/github/workflow/status/LeftTwixWand/Slowly/Go)
+- И, конечто же, CI : [![CI](https://img.shields.io/github/workflow/status/LeftTwixWand/Slowly/Go)](https://github.com/LeftTwixWand/Slowly/actions?query=workflow%3AGo)
 ### Как заставить это работать?
 - Открыть консоль
 - git clone https://github.com/LeftTwixWand/Slowly
