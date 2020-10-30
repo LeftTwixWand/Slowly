@@ -1,8 +1,14 @@
 package server
 
 import (
+	"encoding/json"
 	"log"
 	"net/http" // net/http starting from Go version 1.6 automatically supports HTTP/2
+	"strconv"
+	"time"
+
+	"../dto/resulterror"
+	"../dto/resultok"
 )
 
 // Server struct with mux field
@@ -33,7 +39,20 @@ func (server *Server) slow(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	// Default status: 200 OK
-	writer.Header().Add("Content-Type", "application/json")
-	writer.Write([]byte("status: ok")) // Return result
+	writer.Header().Add("Content-Type", "application/json") // Add a header with the Content-Type
+
+	if number, err := strconv.Atoi(keys[0]); err == nil {
+		if number > 5000 {
+			writer.WriteHeader(http.StatusBadRequest) // Add status 400 Bad Request to a returned request
+			json.NewEncoder(writer).Encode(resulterror.ResultError{Error: "timeout too long"})
+		} else {
+			time.Sleep(time.Duration(number) * time.Millisecond) // We can use time.Sleep function to set a timeout, because request is async
+
+			// Default status: 200 OK
+			json.NewEncoder(writer).Encode(resultok.ResultOk{Status: "ok"}) // Return result
+		}
+
+	} else {
+		log.Println("String parsing error!")
+	}
 }
