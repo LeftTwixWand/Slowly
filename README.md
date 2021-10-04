@@ -5,7 +5,7 @@
 - Simple API
 - One route
 - One test
-- And,, of course, CI : [![CI](https://img.shields.io/github/workflow/status/LeftTwixWand/Slowly/Go)](https://github.com/LeftTwixWand/Slowly/actions?query=workflow%3AGo)
+- And, of course, CI : [![CI](https://img.shields.io/github/workflow/status/LeftTwixWand/Slowly/Go)](https://github.com/LeftTwixWand/Slowly/actions?query=workflow%3AGo)
 ### How to make it work?
 - Open console
 - git clone https://github.com/LeftTwixWand/Slowly
